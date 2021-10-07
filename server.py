@@ -132,7 +132,10 @@ def service():
                     temp.pop(-1)
                     
         driver.close()
-        os.mkdir("drt_"+drt_s+"_party_"+party_s)
+        try:
+            os.mkdir("drt_"+drt_s+"_party_"+party_s)
+        except:
+            pass
         with open("drt_"+drt_s+"_party_"+party_s+"/"+"first.json",'w') as file:
             json.dump(final_dict,file)
         with open("drt_"+drt_s+"_party_"+party_s+"/"+"More.json",'w') as file:
